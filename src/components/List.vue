@@ -7,7 +7,6 @@ const props = defineProps({
     required: true,
   },
 });
-console.log(props);
 </script>
 
 <template>
@@ -26,9 +25,11 @@ console.log(props);
 @import "@/assets/style/_variables";
 .list {
   padding: $main-component-padding;
+  background-color: $background;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 40px;
 }
 </style>
