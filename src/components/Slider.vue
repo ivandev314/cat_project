@@ -1,8 +1,11 @@
-<script setup></script>
+<script setup>
+import Arrow from "./Slider/Arrow.vue";
+</script>
 
 <template>
   <div class="slider">
     <p>slider</p>
+    <Arrow />
   </div>
 </template>
 
