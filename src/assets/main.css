@@ -16,5 +16,9 @@ ol {
 body {
   max-width: 1920px;
   margin: auto;
+}
+
+body,
+input {
   font-family: "Montserrat", sans-serif;
 }

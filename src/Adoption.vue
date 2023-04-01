@@ -1,13 +1,13 @@
 <script setup>
 import List from "./components/List.vue";
-import FilterSortSearch from "./components/FilterSortSearch.vue";
+import SearchSortFilter from "./components/SearchSortFilter.vue";
 import Slider from "./components/Slider.vue";
 </script>
 
 <template>
   <div>
     <Slider />
-    <FilterSortSearch />
+    <SearchSortFilter />
     <List />
   </div>
 </template>
