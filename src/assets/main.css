@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,300&display=swap");
+
 *,
 ::before,
 ::after {
@@ -14,4 +16,5 @@ ol {
 body {
   max-width: 1920px;
   margin: auto;
+  font-family: "Montserrat", sans-serif;
 }

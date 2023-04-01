@@ -7,8 +7,10 @@
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/_variables";
 .slider {
+  padding: $main-component-padding;
   height: 200px;
-  background-color: magenta;
+  background-color: lightgoldenrodyellow;
 }
 </style>

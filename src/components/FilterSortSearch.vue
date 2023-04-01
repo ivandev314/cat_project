@@ -1,11 +1,11 @@
 <script setup>
-import Search from "./Filters/Search.vue";
-import Sort from "./Filters/Sort.vue";
-import Filter from "./Filters/Filter.vue";
+import Search from "./FilterSortSearch/Search.vue";
+import Sort from "./FilterSortSearch/Sort.vue";
+import Filter from "./FilterSortSearch/Filter.vue";
 </script>
 
 <template>
-  <div class="filters">
+  <div class="filter_sort_search">
     <Search />
     <Sort />
     <Filter />
@@ -14,10 +14,10 @@ import Filter from "./Filters/Filter.vue";
 
 <style lang="scss" scoped>
 @import "@/assets/_variables";
-.filters {
+.filter_sort_search {
+  padding: $main-component-padding;
   display: flex;
   gap: 20px;
-  padding: 20px;
   background-color: lightgrey;
   color: $base-color;
 }
