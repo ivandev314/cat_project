@@ -10,3 +10,8 @@ ul,
 ol {
   list-style: none;
 }
+
+body {
+  max-width: 1920px;
+  margin: auto;
+}

@@ -1,7 +1,25 @@
-<script setup></script>
+<script setup>
+import items from "../assets/cats.json";
+import Card from "./Card.vue";
+</script>
 
 <template>
-  <div>List</div>
+  <ul class="list">
+    <Card
+      v-for="item in items.cats"
+      :key="item.id"
+      :name="item.name"
+      :color="item.color"
+      :age="item.age"
+    />
+  </ul>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+</style>
