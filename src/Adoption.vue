@@ -1,13 +1,15 @@
 <script setup>
 import List from "./components/List.vue";
-import SearchAndFilter from "./components/SearchAndFilter.vue";
+import Filters from "./components/Filters.vue";
 import Slider from "./components/Slider.vue";
 </script>
 
 <template>
-  <Slider />
-  <SearchAndFilter />
-  <List />
+  <div>
+    <Slider />
+    <Filters />
+    <List />
+  </div>
 </template>
 
 <style lang="scss" scoped></style>
