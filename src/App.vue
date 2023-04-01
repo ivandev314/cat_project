@@ -1,7 +1,9 @@
-<script setup></script>
+<script setup>
+import Adoption from "./Adoption.vue";
+</script>
 
 <template>
-  <p>Cat</p>
+  <Adoption />
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped></style>
