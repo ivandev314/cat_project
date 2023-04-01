@@ -13,7 +13,7 @@ import Filter from "./SearchSortFilter/Filter.vue";
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/_variables";
+@import "@/assets/style/_variables";
 .search_sort_filter {
   padding: $main-component-padding;
   display: flex;

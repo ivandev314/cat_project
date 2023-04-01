@@ -7,7 +7,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/_variables";
+@import "@/assets/style/_variables";
 .slider {
   padding: $main-component-padding;
   height: 200px;

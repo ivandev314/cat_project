@@ -16,7 +16,7 @@ import Card from "./Card.vue";
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/_variables";
+@import "@/assets/style/_variables";
 .list {
   padding: $main-component-padding;
   display: flex;
