@@ -21,6 +21,12 @@ export default {
     onShowMore() {
       this.$emit("itemsShownChanged", 20);
     },
+    onAdoptClick(value) {
+      this.$emit("catAdopted", value);
+    },
+    onAdoptClick(value) {
+      this.$emit("catAdopted", value);
+    },
   },
 };
 </script>
@@ -34,6 +40,8 @@ export default {
         :name="item.name"
         :color="item.color"
         :age="item.age"
+        :id="item.id"
+        @catAdopted="onAdoptClick"
       />
     </ul>
     <p v-else class="no_items">No items found.</p>

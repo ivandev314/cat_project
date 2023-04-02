@@ -45,6 +45,9 @@ export default {
     onItemsShownChanged(value) {
       this.itemsShown = this.itemsShown + value;
     },
+    onAdoptClick(value) {
+      this.cats = this.cats.filter((cat) => cat.id !== value);
+    },
   },
   computed: {
     filteredItems() {
@@ -95,6 +98,7 @@ export default {
       :items="filteredItems"
       :totalItems="cats.length"
       @itemsShownChanged="onItemsShownChanged"
+      @catAdopted="onAdoptClick"
     />
   </div>
 </template>

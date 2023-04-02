@@ -1,7 +1,21 @@
-<script setup></script>
+<script>
+export default {
+  props: {
+    id: {
+      type: Number,
+      required: true,
+    },
+  },
+  methods: {
+    onAdoptClick(value) {
+      this.$emit("catAdopted", value);
+    },
+  },
+};
+</script>
 
 <template>
-  <button class="cta">Adopt me</button>
+  <button class="cta" @click="onAdoptClick(id)">Adopt me</button>
 </template>
 
 <style lang="scss" scoped>

@@ -1,11 +1,34 @@
-<script setup>
-import { defineProps } from "vue";
+<script>
 import Cta from "./Buttons/Cta.vue";
-defineProps({
-  name: String,
-  color: String,
-  age: Number,
-});
+
+export default {
+  components: {
+    Cta,
+  },
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    color: {
+      type: String,
+      required: true,
+    },
+    age: {
+      type: Number,
+      required: true,
+    },
+    id: {
+      type: Number,
+      required: true,
+    },
+  },
+  methods: {
+    onAdoptClick(value) {
+      this.$emit("catAdopted", value);
+    },
+  },
+};
 </script>
 
 <template>
@@ -16,7 +39,7 @@ defineProps({
         <h3>{{ name }}</h3>
         <p>{{ color }} / {{ age }} months old</p>
       </div>
-      <Cta />
+      <Cta :id="id" @catAdopted="onAdoptClick" />
     </div>
   </li>
 </template>
