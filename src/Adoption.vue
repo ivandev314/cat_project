@@ -23,7 +23,7 @@ export default {
         isBlack: false,
       },
       sort: {
-        sortType: "name",
+        sortType: "age",
         sortDirection: "asc",
       },
       slider: {
@@ -44,6 +44,8 @@ export default {
     },
     onItemsShownChanged(value) {
       this.itemsShown = this.itemsShown + value;
+      this.sort.sortType = "age";
+      this.sort.sortDirection = "asc";
     },
     onAdoptClick(value) {
       this.cats = this.cats.filter((cat) => cat.id !== value);
