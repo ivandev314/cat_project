@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap");
+@import "@/assets/style/_variables";
 
 *,
 ::before,
@@ -16,6 +17,7 @@ ol {
 body {
   max-width: 1920px;
   margin: auto;
+  background-color: $background;
 }
 
 body,

@@ -47,7 +47,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/style/_variables";
 .card {
-  flex: 1 0 250px;
+  flex: 0 1 285px;
   background-color: white;
   border-radius: 20px;
   box-shadow: -2px 2px 8px 0px $text;

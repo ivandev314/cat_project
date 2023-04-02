@@ -96,7 +96,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="main">
     <Slider />
     <SearchSortFilter
       @searchTermChanged="onSearchTermChanged"
@@ -112,4 +112,9 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "@/assets/style/_variables";
+.main {
+  min-height: 100vh;
+}
+</style>
