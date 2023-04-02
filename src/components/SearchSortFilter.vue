@@ -1,12 +1,30 @@
-<script setup>
+<script>
 import Search from "./SearchSortFilter/Search.vue";
 import Sort from "./SearchSortFilter/Sort.vue";
 import Filter from "./SearchSortFilter/Filter.vue";
+
+export default {
+  components: {
+    Search,
+    Sort,
+    Filter,
+  },
+  data() {
+    return {
+      searchTerm: "",
+    };
+  },
+  methods: {
+    onSearchTermChanged(value) {
+      this.$emit("searchTermChanged", value);
+    },
+  },
+};
 </script>
 
 <template>
   <div class="search_sort_filter">
-    <Search />
+    <Search v-model="searchTerm" @searchTermChanged="onSearchTermChanged" />
     <Sort />
     <Filter />
   </div>

@@ -1,8 +1,26 @@
-<script setup></script>
+<script>
+export default {
+  data() {
+    return {
+      inputValue: "",
+    };
+  },
+  methods: {
+    onSearchTermChanged() {
+      this.$emit("searchTermChanged", this.inputValue);
+    },
+  },
+};
+</script>
 
 <template>
   <div class="search">
-    <input type="text" placeholder="Search" />
+    <input
+      type="text"
+      placeholder="Search"
+      v-model="inputValue"
+      @input="onSearchTermChanged"
+    />
     <img
       alt="Vue logo"
       class="logo"
