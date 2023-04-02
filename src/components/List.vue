@@ -55,15 +55,14 @@ export default {
   padding: $main-component-padding;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 40px;
 }
 
 .list_bla {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 .no_items {
   text-align: center;

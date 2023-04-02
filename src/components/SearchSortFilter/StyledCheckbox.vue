@@ -8,6 +8,7 @@
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/style/_variables";
 .checkbox {
   input[type="checkbox"] {
     position: relative;
@@ -15,18 +16,17 @@
     cursor: pointer;
     vertical-align: text-top;
     height: 25px;
-    border: 1px solid #000;
     width: 25px;
     opacity: 0.5;
     appearance: none;
 
     &:hover {
-      background-color: red;
+      background-color: $secondary;
       opacity: 1;
     }
 
     &:checked {
-      background-color: blue;
+      background-color: $secondary;
       opacity: 1;
     }
 

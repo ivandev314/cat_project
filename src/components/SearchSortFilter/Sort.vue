@@ -18,10 +18,9 @@ export default {
 
 <template>
   <div class="sort">
-    <h3>Sort</h3>
     <div class="sort__xy">
+      <p>Sort by</p>
       <div class="sort__group">
-        <p>Sort by</p>
         <div class="sort__group__buttons">
           <label>
             <input
@@ -46,7 +45,6 @@ export default {
         </div>
       </div>
       <div class="sort__group">
-        <p>Sort direction</p>
         <div class="sort__group__buttons">
           <label>
             <input
@@ -75,6 +73,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/style/_variables";
 .sort {
   display: flex;
   flex-direction: column;

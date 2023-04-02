@@ -25,9 +25,11 @@ export default {
 
 <template>
   <div class="search_sort_filter">
-    <Sort @sortChanged="onSortChanged" />
-    <Filter @filterChanged="onFilterChanged" />
     <Search @searchTermChanged="onSearchTermChanged" />
+    <div class="x">
+      <Sort @sortChanged="onSortChanged" />
+      <Filter @filterChanged="onFilterChanged" />
+    </div>
   </div>
 </template>
 
@@ -35,9 +37,17 @@ export default {
 @import "@/assets/style/_variables";
 .search_sort_filter {
   padding: $main-component-padding;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
-  background-color: lightgrey;
+  border: 1px solid $text;
+  align-items: center;
+
+  .x {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    gap: 50px;
+  }
 }
 </style>

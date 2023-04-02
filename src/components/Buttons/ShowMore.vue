@@ -3,16 +3,16 @@
 <template>
   <button class="show_more">
     Show more
-    <img class="control_left" src="@/assets/icons/arrow.svg" />
+    <img class="show_more__icon" src="@/assets/icons/arrow.svg" />
   </button>
 </template>
 
 <style lang="scss" scoped>
 @import "@/assets/style/_variables";
 .show_more {
-  background-color: $alert;
+  background-color: $background;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 15px 30px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -21,13 +21,16 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  border: 2px solid $secondary;
+  color: $text;
 
-  img {
+  &__icon {
     transform: rotate(270deg);
   }
 
   &:hover {
     background-color: $primary;
+    color: white;
   }
 }
 </style>

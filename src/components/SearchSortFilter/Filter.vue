@@ -28,7 +28,7 @@ export default {
             v-model="filter.isYoungerThanSixMonths"
             @change="onFilterChanged(filter)"
           />
-          younger than 6 months</label
+          &lt; 6 months</label
         >
       </div>
       <div class="checkbox">
@@ -39,7 +39,7 @@ export default {
             v-model="filter.isYoungerThanTwelveMonths"
             @change="onFilterChanged(filter)"
           />
-          younger than 12 months</label
+          &lt; 12 months</label
         >
       </div>
       <div class="checkbox">
@@ -58,15 +58,16 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/style/_variables";
 .filter {
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 20px;
 
   &_list {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 10px;
   }
 }
 
@@ -77,33 +78,34 @@ export default {
     cursor: pointer;
     vertical-align: text-top;
     height: 25px;
-    border: 1px solid #000;
+    border: 1px solid $primary;
     width: 25px;
     opacity: 0.5;
     appearance: none;
+    border-radius: 4px;
 
     &:hover {
-      background-color: red;
+      background-color: $primary;
       opacity: 1;
     }
 
     &:checked {
-      background-color: blue;
+      background-color: $secondary;
       opacity: 1;
-    }
 
-    &:before {
-      content: "";
-      position: absolute;
-      right: 50%;
-      top: 50%;
-      width: 4px;
-      height: 10px;
-      border: solid #fff;
-      border-width: 0 2px 2px 0;
-      margin: -1px -1px 0 -1px;
-      transform: rotate(45deg) translate(-50%, -50%);
-      z-index: 2;
+      &::before {
+        content: "";
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        width: 4px;
+        height: 10px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        margin: -1px -1px 0 -1px;
+        transform: rotate(45deg) translate(-50%, -50%);
+        z-index: 2;
+      }
     }
   }
 }

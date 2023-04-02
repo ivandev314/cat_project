@@ -32,19 +32,32 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/style/_variables";
 .search {
   position: relative;
 
   input {
-    height: 30px;
-    padding: 10px;
     border: none;
+    height: 40px;
+    padding: 15px;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    width: 100%;
+
+    &:focus {
+      outline: 1px solid $secondary;
+    }
+
+    &::placeholder {
+      color: #ccc;
+    }
   }
 
   img {
     position: absolute;
     right: 5px;
-    top: 5px;
+    top: 10px;
     height: 20px;
     width: 20px;
   }
