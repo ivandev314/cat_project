@@ -17,7 +17,6 @@ export default {
       this.$emit("filterChanged", value);
     },
     onSortChanged(value) {
-      console.log(2);
       this.$emit("sortChanged", value);
     },
   },
@@ -26,7 +25,7 @@ export default {
 
 <template>
   <div class="search_sort_filter">
-    <Sort @onSortChanged="onSortChanged" />
+    <Sort @sortChanged="onSortChanged" />
     <Filter @filterChanged="onFilterChanged" />
     <Search @searchTermChanged="onSearchTermChanged" />
   </div>

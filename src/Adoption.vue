@@ -51,33 +51,40 @@ export default {
   },
   computed: {
     filteredItems() {
-      return this.cats
-        .filter((cat) => {
-          if (this.filter.isYoungerThanSixMonths) {
-            if (cat.age > 6) {
-              return false;
-            }
-          }
-          if (this.filter.isYoungerThanTwelveMonths) {
-            if (cat.age > 12) {
-              return false;
-            }
-          }
-          if (this.filter.isBlack) {
-            if (cat.color.toLowerCase() !== "black") {
-              return false;
-            }
-          }
-          if (this.searchTerm) {
-            if (
-              !cat.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-            ) {
-              return false;
-            }
-          }
-          return true;
-        })
-        .slice(0, this.itemsShown);
+      let filteredCats = this.cats.filter((cat) => {
+        if (this.filter.isYoungerThanSixMonths && cat.age > 6) {
+          return false;
+        }
+        if (this.filter.isYoungerThanTwelveMonths && cat.age > 12) {
+          return false;
+        }
+        if (this.filter.isBlack && cat.color.toLowerCase() !== "black") {
+          return false;
+        }
+        if (
+          this.searchTerm &&
+          !cat.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        ) {
+          return false;
+        }
+        return true;
+      });
+
+      if (this.sort.sortType === "name") {
+        filteredCats = filteredCats.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+        if (this.sort.sortDirection === "desc") {
+          filteredCats = filteredCats.reverse();
+        }
+      } else if (this.sort.sortType === "age") {
+        filteredCats = filteredCats.sort((a, b) => a.age - b.age);
+        if (this.sort.sortDirection === "desc") {
+          filteredCats = filteredCats.reverse();
+        }
+      }
+
+      return filteredCats.slice(0, this.itemsShown);
     },
   },
 };
@@ -91,9 +98,6 @@ export default {
       @filterChanged="onFilterChanged"
       @sortChanged="onSortChanged"
     />
-    {{ searchTerm }}
-    {{ sort.sortType }}
-    {{ sort.sortDirection }}
     <List
       :items="filteredItems"
       :totalItems="cats.length"
