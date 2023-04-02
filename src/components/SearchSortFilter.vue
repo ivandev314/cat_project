@@ -9,14 +9,12 @@ export default {
     Sort,
     Filter,
   },
-  data() {
-    return {
-      searchTerm: "",
-    };
-  },
   methods: {
     onSearchTermChanged(value) {
       this.$emit("searchTermChanged", value);
+    },
+    onFilterChanged(value) {
+      this.$emit("filterChanged", value);
     },
   },
 };
@@ -24,9 +22,9 @@ export default {
 
 <template>
   <div class="search_sort_filter">
-    <Search v-model="searchTerm" @searchTermChanged="onSearchTermChanged" />
     <Sort />
-    <Filter />
+    <Filter @filterChanged="onFilterChanged" />
+    <Search @searchTermChanged="onSearchTermChanged" />
   </div>
 </template>
 

@@ -34,6 +34,9 @@ export default {
     onSearchTermChanged(value) {
       this.searchTerm = value;
     },
+    onFilterChanged(value) {
+      this.filter = value;
+    },
   },
 };
 </script>
@@ -41,7 +44,12 @@ export default {
 <template>
   <div>
     <Slider />
-    <SearchSortFilter @searchTermChanged="onSearchTermChanged" />
+    <SearchSortFilter
+      @searchTermChanged="onSearchTermChanged"
+      @filterChanged="onFilterChanged"
+    />
+    {{ filter.isBlack }}
+    {{ searchTerm }}
     <List :items="cats" />
   </div>
 </template>
