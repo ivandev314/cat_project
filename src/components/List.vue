@@ -26,20 +26,22 @@ export default {
 </script>
 
 <template>
-  <ul v-if="items.length" class="list">
-    <Card
-      v-for="item in items"
-      :key="item.id"
-      :name="item.name"
-      :color="item.color"
-      :age="item.age"
+  <div class="list_bla">
+    <ul v-if="items.length" class="list">
+      <Card
+        v-for="item in items"
+        :key="item.id"
+        :name="item.name"
+        :color="item.color"
+        :age="item.age"
+      />
+    </ul>
+    <p v-else class="no_items">No items found.</p>
+    <ShowMore
+      v-if="totalItems > items.length && items.length"
+      @click="onShowMore"
     />
-  </ul>
-  <p v-else class="no_items">No items found.</p>
-  <ShowMore
-    v-if="totalItems > items.length && items.length"
-    @click="onShowMore"
-  />
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -51,6 +53,12 @@ export default {
   justify-content: center;
   justify-content: space-between;
   gap: 40px;
+}
+
+.list_bla {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .no_items {
   text-align: center;
