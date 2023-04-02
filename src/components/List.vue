@@ -12,8 +12,8 @@ export default {
       type: Array,
       required: true,
     },
-    totalItems: {
-      type: Number,
+    moreItemsToShow: {
+      type: Boolean,
       required: true,
     },
   },
@@ -45,10 +45,7 @@ export default {
       />
     </ul>
     <p v-else class="no_items">No items found.</p>
-    <ShowMore
-      v-if="totalItems > items.length && items.length"
-      @click="onShowMore"
-    />
+    <ShowMore v-if="moreItemsToShow" @click="onShowMore" />
   </div>
 </template>
 

@@ -50,6 +50,9 @@ export default {
     },
   },
   computed: {
+    moreItemsToShow() {
+      return this.cats.length && this.cats.length > this.itemsShown;
+    },
     filteredItems() {
       let filteredCats = this.cats.filter((cat) => {
         if (this.filter.isYoungerThanSixMonths && cat.age > 6) {
@@ -100,7 +103,7 @@ export default {
     />
     <List
       :items="filteredItems"
-      :totalItems="cats.length"
+      :moreItemsToShow="moreItemsToShow"
       @itemsShownChanged="onItemsShownChanged"
       @catAdopted="onAdoptClick"
     />
