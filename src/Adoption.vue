@@ -15,14 +15,16 @@ export default {
       cats: cats.items,
       searchTerm: "",
       itemsShown: 20,
-      sortType: "name",
-      sortDirection: "asc",
       modalActive: false,
       condirmationActive: false,
       filter: {
         isYoungerThanSixMonths: false,
         isYoungerThanTwelveMonths: false,
         isBlack: false,
+      },
+      sort: {
+        sortType: "name",
+        sortDirection: "asc",
       },
       slider: {
         sliderActive: false,
@@ -37,6 +39,43 @@ export default {
     onFilterChanged(value) {
       this.filter = value;
     },
+    onSortChanged(value) {
+      this.sort = value;
+    },
+    onItemsShownChanged(value) {
+      this.itemsShown = this.itemsShown + value;
+    },
+  },
+  computed: {
+    filteredItems() {
+      return this.cats
+        .filter((cat) => {
+          if (this.filter.isYoungerThanSixMonths) {
+            if (cat.age > 6) {
+              return false;
+            }
+          }
+          if (this.filter.isYoungerThanTwelveMonths) {
+            if (cat.age > 12) {
+              return false;
+            }
+          }
+          if (this.filter.isBlack) {
+            if (cat.color.toLowerCase() !== "black") {
+              return false;
+            }
+          }
+          if (this.searchTerm) {
+            if (
+              !cat.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+            ) {
+              return false;
+            }
+          }
+          return true;
+        })
+        .slice(0, this.itemsShown);
+    },
   },
 };
 </script>
@@ -47,10 +86,16 @@ export default {
     <SearchSortFilter
       @searchTermChanged="onSearchTermChanged"
       @filterChanged="onFilterChanged"
+      @sortChanged="onSortChanged"
     />
-    {{ filter.isBlack }}
     {{ searchTerm }}
-    <List :items="cats" />
+    {{ sort.sortType }}
+    {{ sort.sortDirection }}
+    <List
+      :items="filteredItems"
+      :totalItems="cats.length"
+      @itemsShownChanged="onItemsShownChanged"
+    />
   </div>
 </template>
 

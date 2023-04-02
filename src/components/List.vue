@@ -1,16 +1,32 @@
-<script setup>
+<script>
+import ShowMore from "./Buttons/ShowMore.vue";
 import Card from "./Card.vue";
 
-const props = defineProps({
-  items: {
-    type: Array,
-    required: true,
+export default {
+  components: {
+    Card,
+    ShowMore,
   },
-});
+  props: {
+    items: {
+      type: Array,
+      required: true,
+    },
+    totalItems: {
+      type: Number,
+      required: true,
+    },
+  },
+  methods: {
+    onShowMore() {
+      this.$emit("itemsShownChanged", 20);
+    },
+  },
+};
 </script>
 
 <template>
-  <ul class="list">
+  <ul v-if="items.length" class="list">
     <Card
       v-for="item in items"
       :key="item.id"
@@ -19,17 +35,26 @@ const props = defineProps({
       :age="item.age"
     />
   </ul>
+  <p v-else class="no_items">No items found.</p>
+  <ShowMore
+    v-if="totalItems > items.length && items.length"
+    @click="onShowMore"
+  />
 </template>
 
 <style lang="scss" scoped>
 @import "@/assets/style/_variables";
 .list {
   padding: $main-component-padding;
-  background-color: $background;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   justify-content: space-between;
   gap: 40px;
+}
+.no_items {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 100px;
 }
 </style>

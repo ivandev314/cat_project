@@ -16,13 +16,17 @@ export default {
     onFilterChanged(value) {
       this.$emit("filterChanged", value);
     },
+    onSortChanged(value) {
+      console.log(2);
+      this.$emit("sortChanged", value);
+    },
   },
 };
 </script>
 
 <template>
   <div class="search_sort_filter">
-    <Sort />
+    <Sort @onSortChanged="onSortChanged" />
     <Filter @filterChanged="onFilterChanged" />
     <Search @searchTermChanged="onSearchTermChanged" />
   </div>
