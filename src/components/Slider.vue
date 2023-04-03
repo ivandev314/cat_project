@@ -156,6 +156,8 @@ export default {
   width: 100%;
   height: 400px;
   overflow: hidden;
+  /* margin: 30px 0; */
+  background-color: $text;
 
   .slide {
     display: flex;

@@ -33,7 +33,7 @@ export default {
 
 <template>
   <li class="card">
-    <img src="@/assets/images/cat.jpg" alt="cat" class="card__image" />
+    <img :src="`/images/${name}.jpeg`" alt="cat" class="card__image" />
     <div class="card__info">
       <div class="card__info-top">
         <h3>{{ name }}</h3>

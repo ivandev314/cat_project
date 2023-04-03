@@ -1,160 +1,202 @@
 {
   "items": [
     {
-      "name": "Item 1",
-      "color": "Red",
-      "age": 3,
+      "name": "dora",
+      "color": "grey-white",
+      "age": 20,
       "id": 1
     },
     {
-      "name": "Item 2",
-      "color": "Blue",
-      "age": 5,
+      "name": "klara",
+      "color": "black-white",
+      "age": 16,
       "id": 2
     },
     {
-      "name": "Item 3",
-      "color": "Green",
-      "age": 2,
+      "name": "spomenka",
+      "color": "grey",
+      "age": 10,
       "id": 3
     },
     {
-      "name": "Item 4",
-      "color": "Yellow",
+      "name": "crni",
+      "color": "black",
       "age": 7,
       "id": 4
     },
     {
-      "name": "Item 5",
-      "color": "Purple",
+      "name": "cindi",
+      "color": "black-white",
       "age": 1,
       "id": 5
     },
     {
-      "name": "Item 6",
-      "color": "Orange",
-      "age": 4,
+      "name": "đeni",
+      "color": "grey-white",
+      "age": 12,
       "id": 6
     },
     {
-      "name": "Item 7",
-      "color": "Pink",
-      "age": 6,
+      "name": "andrija",
+      "color": "black-grey",
+      "age": 3,
       "id": 7
     },
     {
-      "name": "Item 8",
-      "color": "Brown",
+      "name": "lukas",
+      "color": "black-grey",
       "age": 8,
       "id": 8
     },
     {
-      "name": "Item 9",
-      "color": "Black",
+      "name": "floki",
+      "color": "grey-white",
       "age": 10,
       "id": 9
     },
     {
-      "name": "Item 10",
-      "color": "White",
+      "name": "lara",
+      "color": "white-orange",
       "age": 9,
       "id": 10
     },
     {
-      "name": "Item 11",
-      "color": "Gray",
-      "age": 2,
+      "name": "roberta",
+      "color": "white-black",
+      "age": 6,
       "id": 11
     },
     {
-      "name": "Item 12",
-      "color": "Beige",
-      "age": 3,
+      "name": "dražen",
+      "color": "grey",
+      "age": 13,
       "id": 12
     },
     {
-      "name": "Item 13",
-      "color": "Turquoise",
+      "name": "jadranko",
+      "color": "white",
       "age": 5,
       "id": 13
     },
     {
-      "name": "Item 14",
-      "color": "Navy",
-      "age": 7,
+      "name": "bjelka",
+      "color": "black",
+      "age": 11,
       "id": 14
     },
     {
-      "name": "Item 15",
-      "color": "Teal",
+      "name": "mirko",
+      "color": "grey",
       "age": 1,
       "id": 15
     },
     {
-      "name": "Item 16",
-      "color": "Maroon",
-      "age": 4,
+      "name": "luna",
+      "color": "black",
+      "age": 14,
       "id": 16
     },
     {
-      "name": "Item 17",
-      "color": "Cyan",
-      "age": 6,
+      "name": "orhideja",
+      "color": "white",
+      "age": 10,
       "id": 17
     },
     {
-      "name": "Item 18",
-      "color": "Magenta",
+      "name": "micko",
+      "color": "grey-white",
       "age": 8,
       "id": 18
     },
     {
-      "name": "Item 19",
-      "color": "Lime",
+      "name": "toni",
+      "color": "white-orange",
       "age": 10,
       "id": 19
     },
     {
-      "name": "Item 20",
-      "color": "Indigo",
+      "name": "terezija",
+      "color": "grey",
       "age": 9,
       "id": 20
     },
     {
-      "name": "Item 21",
-      "color": "Khaki",
-      "age": 2,
+      "name": "karla",
+      "color": "white-black",
+      "age": 4,
       "id": 21
     },
     {
-      "name": "Item 22",
-      "color": "Olive",
+      "name": "fran",
+      "color": "grey",
       "age": 3,
       "id": 22
     },
     {
-      "name": "Item 23",
-      "color": "Salmon",
+      "name": "margarita",
+      "color": "black",
       "age": 5,
       "id": 23
     },
     {
-      "name": "Item 24",
-      "color": "Mint",
-      "age": 7,
+      "name": "vladimirka",
+      "color": "grey-white",
+      "age": 34,
       "id": 24
     },
     {
-      "name": "Item 25",
-      "color": "Peach",
-      "age": 1,
+      "name": "sivkonja",
+      "color": "grey",
+      "age": 11,
       "id": 25
     },
     {
-      "name": "Item 26",
-      "color": "Tan",
-      "age": 4,
+      "name": "miki",
+      "color": "grey",
+      "age": 8,
       "id": 26
+    },
+    {
+      "name": "slafko",
+      "color": "grey-white",
+      "age": 34,
+      "id": 27
+    },
+    {
+      "name": "sunčica",
+      "color": "black",
+      "age": 11,
+      "id": 28
+    },
+    {
+      "name": "riri",
+      "color": "grey-white",
+      "age": 8,
+      "id": 29
+    },
+    {
+      "name": "martin",
+      "color": "black",
+      "age": 19,
+      "id": 30
+    },
+    {
+      "name": "mimi",
+      "color": "grey-white",
+      "age": 27,
+      "id": 31
+    },
+    {
+      "name": "saša",
+      "color": "black",
+      "age": 11,
+      "id": 32
+    },
+    {
+      "name": "sara",
+      "color": "white-orange",
+      "age": 9,
+      "id": 33
     }
   ]
 }

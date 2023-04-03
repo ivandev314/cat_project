@@ -40,13 +40,14 @@ export default {
   input {
     height: 40px;
     padding: 15px;
-    border: 2px solid $grey;
+    border: 1px solid $secondary;
     font-size: 16px;
     border-radius: 10px;
     width: 100%;
 
     &:focus {
-      outline: 1px solid $secondary;
+      border: 1px solid $text;
+      outline: none;
     }
 
     &::placeholder {
