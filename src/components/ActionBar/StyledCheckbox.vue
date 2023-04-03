@@ -15,8 +15,8 @@
     background: none;
     cursor: pointer;
     vertical-align: text-top;
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     opacity: 0.5;
     appearance: none;
 

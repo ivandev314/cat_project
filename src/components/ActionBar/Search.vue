@@ -35,12 +35,12 @@ export default {
 @import "@/assets/style/_variables";
 .search {
   position: relative;
+  flex: 1;
 
   input {
-    border: none;
     height: 40px;
     padding: 15px;
-    border: none;
+    border: 1px solid $grey;
     font-size: 16px;
     border-radius: 10px;
     width: 100%;

@@ -10,7 +10,6 @@
 <style lang="scss" scoped>
 @import "@/assets/style/_variables";
 .show_more {
-  background-color: $background;
   border: none;
   border-radius: 15px;
   padding: 15px 30px;

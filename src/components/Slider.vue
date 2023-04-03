@@ -127,7 +127,7 @@ export default {
         for (let i = 0; i < test.length; i++) {
           test[i].classList.remove("goLeft");
         }
-      }, 200);
+      }, 500);
     },
     handlePrev: function () {
       let test = document.getElementsByClassName("slide");
@@ -142,7 +142,7 @@ export default {
         for (let i = 0; i < test.length; i++) {
           test[i].classList.remove("goRight");
         }
-      }, 200);
+      }, 500);
     },
   },
 };
@@ -201,7 +201,7 @@ export default {
     }
 
     &.goLeft {
-      animation: slideLeft 0.2s forwards;
+      animation: slideLeft 0.5s forwards;
     }
 
     @keyframes slideLeft {
@@ -214,7 +214,7 @@ export default {
     }
 
     &.goRight {
-      animation: slideRight 0.2s forwards;
+      animation: slideRight 0.5s forwards;
     }
 
     @keyframes slideRight {

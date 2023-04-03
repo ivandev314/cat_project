@@ -18,8 +18,8 @@ export default {
 
 <template>
   <div class="sort">
+    <h4>Sort by</h4>
     <div class="sort__xy">
-      <p>Sort by</p>
       <div class="sort__group">
         <div class="sort__group__buttons">
           <label>
@@ -77,16 +77,18 @@ export default {
 .sort {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 10px;
 
   &__xy {
     display: flex;
-    gap: 50px;
+    /* flex-direction: column; */
+    gap: 20px;
   }
 
   &__group {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 20px;
 
     &__buttons {

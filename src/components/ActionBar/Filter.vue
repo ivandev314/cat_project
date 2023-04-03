@@ -18,7 +18,7 @@ export default {
 </script>
 <template>
   <div class="filter">
-    <h3>Filter</h3>
+    <h4>Show only</h4>
     <div class="filter_list">
       <div class="checkbox">
         <label>
@@ -61,8 +61,9 @@ export default {
 @import "@/assets/style/_variables";
 .filter {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
 
   &_list {
     display: flex;
@@ -71,15 +72,21 @@ export default {
   }
 }
 
+label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .checkbox {
   input[type="checkbox"] {
     position: relative;
     background: none;
     cursor: pointer;
     vertical-align: text-top;
-    height: 25px;
+    height: 16px;
     border: 1px solid $primary;
-    width: 25px;
+    width: 16px;
     opacity: 0.5;
     appearance: none;
     border-radius: 4px;

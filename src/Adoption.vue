@@ -1,6 +1,6 @@
 <script>
 import List from "./components/List.vue";
-import SearchSortFilter from "./components/SearchSortFilter.vue";
+import ActionBar from "./components/ActionBar.vue";
 import Slider from "./components/Slider.vue";
 import cats from "./assets/data/cats.json";
 import PreviewModal from "./components/Modal/PreviewModal.vue";
@@ -10,7 +10,7 @@ import Modal from "./components/Modal/Modal.vue";
 export default {
   components: {
     Slider,
-    SearchSortFilter,
+    ActionBar,
     List,
     PreviewModal,
     ConfirmationModal,
@@ -64,7 +64,6 @@ export default {
       this.confirmationModalActive = true;
     },
     onCloseModal() {
-      console.log("V");
       this.previewModalActive = false;
       document.body.classList.remove("modal_open");
     },
@@ -79,7 +78,7 @@ export default {
     },
     successfulAdoption() {
       this.confirmationModalActive = false;
-      this.cats = this.cats.filter((cat) => cat.id !== value);
+      this.cats = this.cats.filter((cat) => cat.id !== this.activeItem.id);
       this.activeItem = {};
       document.body.classList.remove("modal_open");
     },
@@ -135,7 +134,7 @@ export default {
 <template>
   <div class="main">
     <Slider @sliderClick="onSliderClick" />
-    <SearchSortFilter
+    <ActionBar
       @searchTermChanged="onSearchTermChanged"
       @filterChanged="onFilterChanged"
       @sortChanged="onSortChanged"
