@@ -3,20 +3,22 @@ import List from "./components/List.vue";
 import SearchSortFilter from "./components/SearchSortFilter.vue";
 import Slider from "./components/Slider.vue";
 import cats from "./assets/data/cats.json";
+import Modal from "./components/Modal.vue";
 
 export default {
   components: {
     Slider,
     SearchSortFilter,
     List,
+    Modal,
   },
   data() {
     return {
       cats: cats.items,
       searchTerm: "",
       itemsShown: 20,
-      modalActive: false,
-      condirmationActive: false,
+      modalActive: true,
+      confirmationActive: true,
       filter: {
         isYoungerThanSixMonths: false,
         isYoungerThanTwelveMonths: false,
@@ -49,6 +51,9 @@ export default {
     },
     onAdoptClick(value) {
       this.cats = this.cats.filter((cat) => cat.id !== value);
+    },
+    closeModal() {
+      this.modalActive = false;
     },
   },
   computed: {
@@ -109,6 +114,7 @@ export default {
       @itemsShownChanged="onItemsShownChanged"
       @catAdopted="onAdoptClick"
     />
+    <Modal :is-open="modalActive" @close="closeModal" />
   </div>
 </template>
 
