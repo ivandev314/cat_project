@@ -3,14 +3,16 @@ import List from "./components/List.vue";
 import SearchSortFilter from "./components/SearchSortFilter.vue";
 import Slider from "./components/Slider.vue";
 import cats from "./assets/data/cats.json";
-import Modal from "./components/Modal.vue";
+import PreviewModal from "./components/Modal/PreviewModal.vue";
+import ConfirmationModal from "./components/Modal/ConfirmationModal.vue";
 
 export default {
   components: {
     Slider,
     SearchSortFilter,
     List,
-    Modal,
+    PreviewModal,
+    ConfirmationModal,
   },
   data() {
     return {
@@ -18,7 +20,7 @@ export default {
       searchTerm: "",
       itemsShown: 20,
       modalActive: true,
-      confirmationActive: true,
+      condirmationActive: true,
       filter: {
         isYoungerThanSixMonths: false,
         isYoungerThanTwelveMonths: false,
@@ -114,7 +116,8 @@ export default {
       @itemsShownChanged="onItemsShownChanged"
       @catAdopted="onAdoptClick"
     />
-    <Modal :is-open="modalActive" @close="closeModal" />
+    <PreviewModal :is-open="modalActive" />
+    <ConfirmationModal :is-open="condirmationActive" />
   </div>
 </template>
 
