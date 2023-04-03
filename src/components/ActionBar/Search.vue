@@ -40,7 +40,7 @@ export default {
   input {
     height: 40px;
     padding: 15px;
-    border: 1px solid $grey;
+    border: 2px solid $grey;
     font-size: 16px;
     border-radius: 10px;
     width: 100%;

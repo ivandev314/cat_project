@@ -50,11 +50,12 @@ export default {
 
 .modal {
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 1rem;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
   max-width: 90%;
   max-height: 90%;
   overflow: auto;
+  /* padding: 1rem 3rem; */
 }
 
 .modal-header {
@@ -62,7 +63,6 @@ export default {
   justify-content: flex-end;
   align-items: center;
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid #ddd;
 }
 
 .modal-header .modal-close {
@@ -74,7 +74,7 @@ export default {
 }
 
 .modal-body {
-  padding: 1rem;
+  padding: 0 3rem 3rem;
 }
 
 .modal-footer {

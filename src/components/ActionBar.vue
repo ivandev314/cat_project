@@ -26,7 +26,7 @@ export default {
 <template>
   <div class="action_bar">
     <div class="action_bar__logo_and_search">
-      <p>Logo</p>
+      <p>MeowMeet</p>
       <Search @searchTermChanged="onSearchTermChanged" />
     </div>
     <div class="action_bar__sort_and_filter">

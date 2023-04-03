@@ -85,7 +85,7 @@ label {
     cursor: pointer;
     vertical-align: text-top;
     height: 16px;
-    border: 1px solid $primary;
+    border: 2px solid $primary;
     width: 16px;
     opacity: 0.5;
     appearance: none;

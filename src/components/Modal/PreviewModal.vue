@@ -25,7 +25,7 @@ export default {
   <div class="preview_modal">
     <img src="@/assets/images/cat.jpg" alt="cat" class="preview_modal__img" />
     <div class="preview_modal__info">
-      <div>
+      <div class="z">
         <h2>{{ activeItem?.name }}</h2>
         <p>{{ activeItem?.color }} / {{ activeItem?.age }} months</p>
       </div>
@@ -35,6 +35,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/style/_variables";
 .preview_modal {
   display: flex;
   flex-direction: column;
@@ -42,8 +43,15 @@ export default {
 
   &__info {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    gap: 1rem;
+
+    .z {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   &__img {

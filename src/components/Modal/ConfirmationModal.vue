@@ -37,6 +37,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/style/_variables";
 .confirmation_modal {
   display: flex;
   flex-direction: column;
@@ -56,15 +57,13 @@ export default {
 
       &:hover {
         cursor: pointer;
+        box-shadow: 0 0 5px 2px $primary;
       }
     }
 
     &__yes {
-      background-color: lightgreen;
-    }
-
-    &__no {
-      background-color: red;
+      background-color: $primary;
+      color: white;
     }
   }
 }
