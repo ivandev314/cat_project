@@ -1,27 +1,7 @@
-<template>
-  <transition name="fade">
-    <div class="modal-backdrop" v-show="isOpen" @click="handleBackdropClick">
-      <div class="modal" @click.stop>
-        <div class="modal-header">
-          <slot name="header"></slot>
-          <button class="modal-close" @click="close">&times;</button>
-        </div>
-        <div class="modal-body">
-          <slot></slot>
-        </div>
-      </div>
-    </div>
-  </transition>
-</template>
-
 <script>
 export default {
-  name: "modal",
+  name: "Modal",
   props: {
-    isOpen: {
-      type: Boolean,
-      default: false,
-    },
     closeOnBackdropClick: {
       type: Boolean,
       default: true,
@@ -39,6 +19,21 @@ export default {
   },
 };
 </script>
+
+<template>
+  <transition name="fade">
+    <div class="modal-backdrop" @click="handleBackdropClick">
+      <div class="modal" @click.stop>
+        <div class="modal-header">
+          <button class="modal-close" @click="close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <slot></slot>
+        </div>
+      </div>
+    </div>
+  </transition>
+</template>
 
 <style lang="scss">
 .modal-backdrop {
@@ -64,9 +59,9 @@ export default {
 
 .modal-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid #ddd;
 }
 

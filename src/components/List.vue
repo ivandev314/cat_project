@@ -24,9 +24,6 @@ export default {
     onAdoptClick(value) {
       this.$emit("catAdopted", value);
     },
-    onAdoptClick(value) {
-      this.$emit("catAdopted", value);
-    },
   },
 };
 </script>
@@ -68,5 +65,6 @@ export default {
   text-align: center;
   font-size: 24px;
   margin-top: 100px;
+  width: 100%;
 }
 </style>

@@ -3,35 +3,35 @@
     <div id="slider">
       <div class="slide left_out">
         <h1>{{ left_out.name }}</h1>
-        <img :src="left_out.url" />
+        <img :src="left_out.url" class="slide__image" />
       </div>
       <div class="slide left">
         <h1>{{ left.name }}</h1>
-        <img :src="left.url" />
+        <img :src="left.url" class="slide__image" />
+        <img
+          class="control_left"
+          @click="handlePrev"
+          src="@/assets/icons/arrow.svg"
+        />
       </div>
-      <div class="slide actual">
+      <div class="slide actual" @click="onSliderClick(actual)">
         <h1>{{ actual.name }}</h1>
-        <img :src="actual.url" />
+        <img :src="actual.url" class="slide__image" />
       </div>
       <div class="slide right">
         <h1>{{ right.name }}</h1>
-        <img :src="right.url" />
+        <img :src="right.url" class="slide__image" />
+        <img
+          class="control_right"
+          @click="handleNext"
+          src="@/assets/icons/arrow.svg"
+        />
       </div>
       <div class="slide right_out">
         <h1>{{ right_out.name }}</h1>
-        <img :src="right_out.url" />
+        <img :src="right_out.url" class="slide__image" />
       </div>
     </div>
-    <img
-      class="control_left"
-      @click="handlePrev"
-      src="@/assets/icons/arrow.svg"
-    />
-    <img
-      class="control_right"
-      @click="handleNext"
-      src="@/assets/icons/arrow.svg"
-    />
   </div>
 </template>
 
@@ -44,18 +44,30 @@ export default {
       test: [
         {
           name: "test1",
+          id: 6,
+          age: 23,
+          color: "red",
           url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/fashion.jpg",
         },
         {
           name: "test2",
+          id: 7,
+          age: 23,
+          color: "red",
           url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/forest.jpg",
         },
         {
           name: "test3",
+          id: 9,
+          age: 23,
+          color: "red",
           url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/guitar.jpg",
         },
         {
           name: "test4",
+          id: 11,
+          age: 23,
+          color: "red",
           url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/typewriter.jpg",
         },
       ],
@@ -99,6 +111,9 @@ export default {
   },
 
   methods: {
+    onSliderClick(value) {
+      this.$emit("sliderClick", value);
+    },
     handleNext: function () {
       let test = document.getElementsByClassName("slide");
       for (let i = 0; i < test.length; i++) {
@@ -134,24 +149,25 @@ export default {
 </script>
 
 <style lang="scss">
-* {
-  margin: 0;
-  padding: 0;
-}
+@import "@/assets/style/_variables";
+
 #slider {
   display: flex;
   width: 100%;
-  height: 45vh;
+  height: 400px;
   overflow: hidden;
 
   .slide {
     display: flex;
     align-items: center;
-    img {
-      opacity: 0.5;
+
+    .slide__image {
       height: 90%;
+      opacity: 0.5;
       object-fit: cover;
       object-position: top;
+      width: 100%;
+      width: 60vw;
     }
   }
 
@@ -161,11 +177,12 @@ export default {
     }
     &.left {
       transform: translateX(-109vw);
+      position: relative;
     }
     &.actual {
       transform: translateX(-109vw);
 
-      img {
+      .slide__image {
         opacity: 1;
         transition: 0.2s ease-out;
 
@@ -177,6 +194,7 @@ export default {
     }
     &.right {
       transform: translateX(-109vw);
+      position: relative;
     }
     &.right_out {
       transform: translateX(-109vw);
@@ -209,35 +227,37 @@ export default {
     }
     margin: 0 1vw;
     max-height: 100vh;
-
-    img {
-      width: 100%;
-      width: 60vw;
-    }
   }
 }
 
 h1 {
-  text-align: center;
-  display: none;
+  position: absolute;
+  color: $primary;
+  bottom: 20%;
+  left: 10%;
+  font-size: 45px;
+  z-index: 2;
+  padding: 10px;
+  border-bottom: 5px solid $primary;
+  border-top: 5px solid $primary;
+  user-select: none;
+  cursor: auto;
+}
+
+.control_left,
+.control_right {
+  position: absolute;
+  height: 50px;
+  top: calc(50% - 25px);
+  cursor: pointer;
 }
 
 .control_left {
-  position: absolute;
-  top: 170px;
-  left: 11vw;
-  transform: translateY(-50%);
-  cursor: pointer;
-  height: 50px;
+  right: 0;
 }
 
 .control_right {
-  position: absolute;
-  top: 150px;
-  right: 19vw;
-  transform: translateY(-50%);
-  cursor: pointer;
+  left: 0;
   transform: rotate(180deg);
-  height: 50px;
 }
 </style>

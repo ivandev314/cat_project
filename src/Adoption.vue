@@ -5,6 +5,7 @@ import Slider from "./components/Slider.vue";
 import cats from "./assets/data/cats.json";
 import PreviewModal from "./components/Modal/PreviewModal.vue";
 import ConfirmationModal from "./components/Modal/ConfirmationModal.vue";
+import Modal from "./components/Modal/Modal.vue";
 
 export default {
   components: {
@@ -13,14 +14,16 @@ export default {
     List,
     PreviewModal,
     ConfirmationModal,
+    Modal,
   },
   data() {
     return {
       cats: cats.items,
       searchTerm: "",
       itemsShown: 20,
-      modalActive: true,
-      condirmationActive: true,
+      previewModalActive: false,
+      activeItemId: 0,
+      confirmationModalActive: false,
       filter: {
         isYoungerThanSixMonths: false,
         isYoungerThanTwelveMonths: false,
@@ -51,16 +54,43 @@ export default {
       this.sort.sortType = "age";
       this.sort.sortDirection = "asc";
     },
-    onAdoptClick(value) {
-      this.cats = this.cats.filter((cat) => cat.id !== value);
+    onAdoptClickFromCard(value) {
+      this.confirmationModalActive = true;
+      this.activeItem = this.cats.find((cat) => cat.id === value);
+      document.body.classList.add("modal_open");
     },
-    closeModal() {
-      this.modalActive = false;
+    onAdoptClickFromModal(value) {
+      this.previewModalActive = false;
+      this.confirmationModalActive = true;
+    },
+    onCloseModal() {
+      console.log("V");
+      this.previewModalActive = false;
+      document.body.classList.remove("modal_open");
+    },
+    onCloseConfirmation() {
+      this.confirmationModalActive = false;
+      document.body.classList.remove("modal_open");
+    },
+    onSliderClick(value) {
+      this.activeItem = value;
+      this.previewModalActive = true;
+      document.body.classList.add("modal_open");
+    },
+    successfulAdoption() {
+      this.confirmationModalActive = false;
+      this.cats = this.cats.filter((cat) => cat.id !== value);
+      this.activeItem = {};
+      document.body.classList.remove("modal_open");
+    },
+    canceledAdoption() {
+      this.confirmationModalActive = false;
+      document.body.classList.remove("modal_open");
     },
   },
   computed: {
     moreItemsToShow() {
-      return this.cats.length && this.cats.length > this.itemsShown;
+      return this.filteredItems.length && this.cats.length > this.itemsShown;
     },
     filteredItems() {
       let filteredCats = this.cats.filter((cat) => {
@@ -104,7 +134,7 @@ export default {
 
 <template>
   <div class="main">
-    <Slider />
+    <Slider @sliderClick="onSliderClick" />
     <SearchSortFilter
       @searchTermChanged="onSearchTermChanged"
       @filterChanged="onFilterChanged"
@@ -114,15 +144,29 @@ export default {
       :items="filteredItems"
       :moreItemsToShow="moreItemsToShow"
       @itemsShownChanged="onItemsShownChanged"
-      @catAdopted="onAdoptClick"
+      @catAdopted="onAdoptClickFromCard"
     />
-    <PreviewModal :is-open="modalActive" />
-    <ConfirmationModal :is-open="condirmationActive" />
+    <Modal v-if="previewModalActive" @close="onCloseModal">
+      <PreviewModal
+        :activeItem="activeItem"
+        @catAdopted="onAdoptClickFromModal"
+      />
+    </Modal>
+    <Modal
+      v-if="confirmationModalActive"
+      @close="onCloseConfirmation"
+      :closeOnBackdropClick="false"
+    >
+      <ConfirmationModal
+        :activeItem="activeItem"
+        @successAdopt="successfulAdoption"
+        @cancelAdopt="canceledAdoption"
+      />
+    </Modal>
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/style/_variables";
 .main {
   min-height: 100vh;
 }
