@@ -40,7 +40,6 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  border: 1px solid $text;
   align-items: center;
 
   .x {
