@@ -25,6 +25,7 @@
 
   &__img {
     transform: rotate(270deg);
+    height: 1.5rem;
   }
 
   &:hover {

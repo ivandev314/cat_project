@@ -67,7 +67,7 @@ export default {
 
   &__close {
     font-size: 2rem;
-    color: #ccc;
+    color: $light-grey;
     cursor: pointer;
     border: none;
     background-color: transparent;
@@ -81,7 +81,7 @@ export default {
     display: flex;
     justify-content: flex-end;
     padding: 1rem;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $light-grey;
   }
 }
 </style>

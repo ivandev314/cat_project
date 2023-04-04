@@ -67,6 +67,7 @@ export default {
     object-fit: cover;
     border-radius: 20px 20px 0 0;
     border-bottom: 10px solid $secondary;
+    height: 15rem;
   }
 
   &__info {

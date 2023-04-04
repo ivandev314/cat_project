@@ -26,7 +26,7 @@ export default {
 <template>
   <div class="action_bar">
     <div class="action_bar__logo_and_search">
-      <p>MeowMeet</p>
+      <img class="slider__previous_img" src="@/assets/icons/logo.svg" />
       <Search @searchTermChanged="onSearchTermChanged" />
     </div>
     <div class="action_bar__sort_and_filter">
@@ -50,7 +50,12 @@ export default {
   &__logo_and_search {
     display: flex;
     align-items: center;
-    gap: 20%;
+    gap: 5rem;
+
+    img {
+      height: 100px;
+      width: auto;
+    }
   }
 
   &__sort_and_filter {

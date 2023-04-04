@@ -51,7 +51,7 @@ export default {
     }
 
     &::placeholder {
-      color: #ccc;
+      color: $light-grey;
     }
   }
 
