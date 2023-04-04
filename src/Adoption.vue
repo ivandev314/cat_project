@@ -91,6 +91,9 @@ export default {
     moreItemsToShow() {
       return this.filteredItems.length && this.cats.length > this.itemsShown;
     },
+    firstFourYoungestItems() {
+      return this.cats.sort((a, b) => a.age - b.age).slice(0, 4);
+    },
     filteredItems() {
       let filteredCats = this.cats.filter((cat) => {
         if (this.filter.isYoungerThanSixMonths && cat.age > 6) {
@@ -132,8 +135,8 @@ export default {
 </script>
 
 <template>
-  <div class="main">
-    <Slider @sliderClick="onSliderClick" />
+  <div class="main_container">
+    <Slider @sliderClick="onSliderClick" :items="firstFourYoungestItems" />
     <ActionBar
       @searchTermChanged="onSearchTermChanged"
       @filterChanged="onFilterChanged"
@@ -166,7 +169,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.main {
+.main_container {
   min-height: 100vh;
 }
 </style>
