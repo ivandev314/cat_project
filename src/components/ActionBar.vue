@@ -45,7 +45,7 @@ export default {
   align-items: center;
   border-bottom: 1px solid $secondary;
   border-top: 1px solid $secondary;
-  background-color: white;
+  background-color: $light;
 
   &__logo_and_search {
     display: flex;

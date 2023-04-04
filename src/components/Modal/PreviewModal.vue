@@ -25,7 +25,7 @@ export default {
   <div class="preview_modal">
     <img src="@/assets/images/cat.jpg" alt="cat" class="preview_modal__img" />
     <div class="preview_modal__info">
-      <div class="z">
+      <div class="preview_modal__info__top">
         <h2>{{ activeItem?.name }}</h2>
         <p>{{ activeItem?.color }} / {{ activeItem?.age }} months</p>
       </div>
@@ -47,7 +47,7 @@ export default {
     justify-content: space-between;
     gap: 1rem;
 
-    .z {
+    &__top {
       display: flex;
       justify-content: space-between;
       align-items: center;

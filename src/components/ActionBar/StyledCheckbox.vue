@@ -37,7 +37,7 @@
       top: 50%;
       width: 4px;
       height: 10px;
-      border: solid #fff;
+      border: solid $light;
       border-width: 0 2px 2px 0;
       margin: -1px -1px 0 -1px;
       transform: rotate(45deg) translate(-50%, -50%);

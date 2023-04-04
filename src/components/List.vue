@@ -29,8 +29,8 @@ export default {
 </script>
 
 <template>
-  <div class="list_bla">
-    <ul v-if="items.length" class="list">
+  <div class="list">
+    <ul v-if="items.length" class="list__items">
       <Card
         v-for="item in items"
         :key="item.id"
@@ -41,30 +41,32 @@ export default {
         @catAdopted="onAdoptClick"
       />
     </ul>
-    <p v-else class="no_items">No items found.</p>
+    <p v-else class="list__no_items">No items found.</p>
     <ShowMore v-if="moreItemsToShow" @click="onShowMore" />
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import "@/assets/style/_variables";
-.list {
-  padding: $main-component-padding;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 40px;
-}
 
-.list_bla {
+.list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-.no_items {
-  text-align: center;
-  font-size: 24px;
-  margin-top: 100px;
-  width: 100%;
+
+  &__items {
+    padding: $main-component-padding;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+
+  &__no_items {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 100px;
+    width: 100%;
+  }
 }
 </style>

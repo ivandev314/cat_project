@@ -63,7 +63,7 @@ export default {
 
     &__yes {
       background-color: $primary;
-      color: white;
+      color: $light;
     }
   }
 }

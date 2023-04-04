@@ -3,7 +3,7 @@
 <template>
   <button class="show_more">
     Show more
-    <img class="show_more__icon" src="@/assets/icons/arrow.svg" />
+    <img class="show_more__img" src="@/assets/icons/arrow.svg" />
   </button>
 </template>
 
@@ -23,7 +23,7 @@
   border: 2px solid $secondary;
   color: $text;
 
-  &__icon {
+  &__img {
     transform: rotate(270deg);
   }
 

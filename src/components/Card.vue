@@ -28,12 +28,20 @@ export default {
       this.$emit("catAdopted", value);
     },
   },
+  setup() {
+    const imageUrl = new URL("./../assets/images/", import.meta.url).href;
+    return { imageUrl };
+  },
 };
 </script>
 
 <template>
   <li class="card">
-    <img :src="`/images/${name}.jpeg`" alt="cat" class="card__image" />
+    <img
+      :src="`${imageUrl}/${name}.jpg`"
+      :alt="`cat-${name}`"
+      class="card__image"
+    />
     <div class="card__info">
       <div class="card__info-top">
         <h3>{{ name }}</h3>
@@ -48,7 +56,7 @@ export default {
 @import "@/assets/style/_variables";
 .card {
   flex: 0 1 285px;
-  background-color: white;
+  background-color: $light;
   border-radius: 20px;
   box-shadow: -2px 2px 8px 0px $text;
   -webkit-box-shadow: -2px 2px 8px 0px $text;
