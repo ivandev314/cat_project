@@ -92,7 +92,7 @@ export default {
       );
     },
     firstFourYoungestItems() {
-      return this.cats.sort((a, b) => a.age - b.age).slice(0, 5);
+      return this.cats.sort((a, b) => a.age - b.age).slice(0, 4);
     },
     filteredItems() {
       let filteredCats = this.cats.filter((cat) => {

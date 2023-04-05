@@ -1,5 +1,10 @@
 <template>
-  <div class="slide" @click="handleClick">
+  <div
+    class="slide"
+    @click="handleClick"
+    @mouseover="handleMouseOver"
+    @mouseout="handleMouseOut"
+  >
     <img
       :src="`${imageUrl}/${item.name}.jpg`"
       :alt="`cat-${item.name}`"
@@ -31,7 +36,19 @@ export default {
   },
   methods: {
     handleClick() {
-      this.$emit("openModal", { id: this.item.id, index: this.index });
+      if (this.index === 2) {
+        this.$emit("openModal", this.index);
+      }
+    },
+    handleMouseOver() {
+      if (this.index === 2) {
+        this.$emit("mouseOver");
+      }
+    },
+    handleMouseOut() {
+      if (this.index === 2) {
+        this.$emit("mouseOut");
+      }
     },
   },
   setup() {
@@ -53,7 +70,6 @@ export default {
   &__image {
     width: 100%;
     height: 350px;
-    /* z-index: 10; */
     object-fit: cover;
     position: relative;
     transition: all 0.3s ease-out;

@@ -12,6 +12,8 @@
         :item="cat"
         :index="index"
         @openModal="handleSlideClick"
+        @mouseOver="handleMouseOver"
+        @mouseOut="handleMouseOut"
       />
     </TransitionGroup>
     <button class="slider__previous" @click="previous">
@@ -37,30 +39,46 @@ export default {
     return {
       cats: this.items,
       autoplayInterval: null,
+      sliderActive: true,
+      slideDirection: "right",
     };
   },
-  // mounted() {
-  //   this.autoplayInterval = setInterval(() => {
-  //     this.next();
-  //   }, 3000);
-  //   console.log(this.cats);
-  // },
+  mounted() {
+    this.setAutoplayInterval();
+  },
   beforeDestroy() {
     clearInterval(this.autoplayInterval);
   },
   methods: {
     previous() {
+      this.slideDirection = "left";
       const lastSlide = this.cats.pop();
       this.cats = [lastSlide].concat(this.cats);
     },
     next() {
+      this.slideDirection = "right";
       const firstPicture = this.cats.shift();
       this.cats = this.cats.concat(firstPicture);
     },
-    handleSlideClick({ id, index }) {
-      if (index === 2) {
-        this.$emit("sliderClick", id);
-      }
+    handleSlideClick(id) {
+      this.$emit("sliderClick", id);
+    },
+    handleMouseOver() {
+      this.sliderActive = false;
+      clearInterval(this.autoplayInterval);
+    },
+    handleMouseOut() {
+      this.sliderActive = true;
+      this.setAutoplayInterval();
+    },
+    setAutoplayInterval() {
+      this.autoplayInterval = setInterval(() => {
+        if (this.slideDirection === "right") {
+          this.next();
+        } else {
+          this.previous();
+        }
+      }, 3000);
     },
   },
   components: { Slide },
