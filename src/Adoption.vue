@@ -22,7 +22,7 @@ export default {
       searchTerm: "",
       itemsShown: 20,
       previewModalActive: false,
-      activeItemId: 0,
+      activeItem: {},
       confirmationModalActive: false,
       filter: {
         isYoungerThanSixMonths: false,
@@ -68,7 +68,7 @@ export default {
       document.body.classList.remove("modal_open");
     },
     onSliderClick(value) {
-      this.activeItem = value;
+      this.activeItem = this.cats.find((cat) => cat.id === value);
       this.previewModalActive = true;
       document.body.classList.add("modal_open");
     },

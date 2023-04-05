@@ -6,7 +6,13 @@
       tag="div"
       class="slider__transition_container"
     >
-      <Slide v-for="cat in cats" :key="cat.id" :item="cat" />
+      <Slide
+        v-for="(cat, index) in cats"
+        :key="cat.id"
+        :item="cat"
+        :index="index"
+        @openModal="handleSlideClick"
+      />
     </TransitionGroup>
     <button class="slider__previous" @click="previous">
       <img class="slider__previous_img" src="@/assets/icons/arrow.svg" />
@@ -50,6 +56,11 @@ export default {
     next() {
       const firstPicture = this.cats.shift();
       this.cats = this.cats.concat(firstPicture);
+    },
+    handleSlideClick({ id, index }) {
+      if (index === 2) {
+        this.$emit("sliderClick", id);
+      }
     },
   },
   components: { Slide },

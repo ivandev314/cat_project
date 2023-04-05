@@ -1,5 +1,5 @@
 <template>
-  <div class="slide">
+  <div class="slide" @click="handleClick">
     <img
       :src="`${imageUrl}/${item.name}.jpg`"
       :alt="`cat-${item.name}`"
@@ -17,12 +17,21 @@ export default {
       type: Object,
       required: true,
     },
+    index: {
+      type: Number,
+      required: true,
+    },
   },
   computed: {
     capitalizeFirstLetter(string) {
       return (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
       };
+    },
+  },
+  methods: {
+    handleClick() {
+      this.$emit("openModal", { id: this.item.id, index: this.index });
     },
   },
   setup() {
@@ -39,15 +48,17 @@ export default {
   height: 350px;
   z-index: 10;
   position: relative;
+  user-select: none;
 
   &__image {
     width: 100%;
     height: 350px;
-    z-index: 10;
+    /* z-index: 10; */
     object-fit: cover;
     position: relative;
     transition: all 0.3s ease-out;
     opacity: 0.3;
+    -webkit-user-drag: none;
 
     &:first-child {
       z-index: 5;
