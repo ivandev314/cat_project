@@ -6,13 +6,7 @@
       tag="div"
       class="slider__transition_container"
     >
-      <img
-        v-for="cat in cats"
-        :key="cat.id"
-        :src="`${imageUrl}/${cat.name}.jpg`"
-        :alt="`cat-${cat.name}`"
-        class="slider__image"
-      />
+      <Slide v-for="cat in cats" :key="cat.id" :item="cat" />
     </TransitionGroup>
     <button class="slider__previous" @click="previous">
       <img class="slider__previous_img" src="@/assets/icons/arrow.svg" />
@@ -24,6 +18,8 @@
 </template>
 
 <script>
+import Slide from "./Slide.vue";
+
 export default {
   props: {
     items: {
@@ -37,11 +33,12 @@ export default {
       autoplayInterval: null,
     };
   },
-  mounted() {
-    this.autoplayInterval = setInterval(() => {
-      this.next();
-    }, 3000);
-  },
+  // mounted() {
+  //   this.autoplayInterval = setInterval(() => {
+  //     this.next();
+  //   }, 3000);
+  //   console.log(this.cats);
+  // },
   beforeDestroy() {
     clearInterval(this.autoplayInterval);
   },
@@ -55,14 +52,13 @@ export default {
       this.cats = this.cats.concat(firstPicture);
     },
   },
-  setup() {
-    const imageUrl = new URL("./../assets/images/", import.meta.url).href;
-    return { imageUrl };
-  },
+  components: { Slide },
 };
 </script>
 
 <style lang="scss">
+@import "@/assets/style/_variables";
+
 .slider {
   width: 100vw;
   height: 400px;
@@ -71,6 +67,7 @@ export default {
   overflow: hidden;
   max-width: 1920px;
   position: relative;
+  background-color: $text;
 
   &__transition_container {
     display: flex;
@@ -80,35 +77,29 @@ export default {
     height: 100%;
     overflow: visible;
     background-color: grey;
+    height: 350px;
+    /* 
+    @media screen and (min-width: 1920px) {
+      width: 1920px;
+    } */
 
     :nth-child(3) {
-      height: 512px;
+      height: 350px;
       width: 60vw;
-      opacity: 1;
+      z-index: 15;
 
-      @media screen and (min-width: 1921px) {
-        width: 80%;
+      img {
+        opacity: 1;
+
+        &:hover {
+          transform: scale(1.05);
+          cursor: pointer;
+        }
       }
-    }
-  }
 
-  &__image {
-    width: 40vw;
-    height: 400px;
-    z-index: 10;
-    pointer-events: none;
-    opacity: 0.5;
-
-    &:first-child {
-      z-index: 5;
-    }
-
-    &:last-child {
-      z-index: 5;
-    }
-
-    @media screen and (min-width: 1921px) {
-      width: 50%;
+      /* @media screen and (min-width: 1920px) {
+        max-width: 80%;
+      } */
     }
   }
 
@@ -158,6 +149,6 @@ export default {
 }
 
 .swipe-move {
-  transition: all 0.2s;
+  transition: all 0.1s;
 }
 </style>

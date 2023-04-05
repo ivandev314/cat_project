@@ -1,7 +1,7 @@
 <script>
 import List from "./components/List.vue";
 import ActionBar from "./components/ActionBar.vue";
-import Slider from "./components/Slider.vue";
+import Slider from "./components/Slider/Slider.vue";
 import cats from "./assets/data/cats.json";
 import PreviewModal from "./components/Modal/PreviewModal.vue";
 import ConfirmationModal from "./components/Modal/ConfirmationModal.vue";
@@ -32,10 +32,6 @@ export default {
       sort: {
         sortType: "age",
         sortDirection: "asc",
-      },
-      slider: {
-        sliderActive: false,
-        sliderLeftToRight: true,
       },
     };
   },
@@ -89,10 +85,14 @@ export default {
   },
   computed: {
     moreItemsToShow() {
-      return this.filteredItems.length && this.cats.length > this.itemsShown;
+      return (
+        this.filteredItems.length &&
+        this.cats.length > this.itemsShown &&
+        this.filteredItems.length === this.itemsShown
+      );
     },
     firstFourYoungestItems() {
-      return this.cats.sort((a, b) => a.age - b.age).slice(0, 4);
+      return this.cats.sort((a, b) => a.age - b.age).slice(0, 5);
     },
     filteredItems() {
       let filteredCats = this.cats.filter((cat) => {
