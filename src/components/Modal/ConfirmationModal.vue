@@ -52,7 +52,7 @@ export default {
     &__no {
       border: none;
       padding: 0.5rem 2rem;
-      border-radius: 0.5rem;
+      border-radius: $border-radius-normal;
       font-size: 1rem;
 
       &:hover {

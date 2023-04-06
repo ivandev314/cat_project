@@ -38,11 +38,11 @@ export default {
   flex: 1;
 
   input {
-    height: 40px;
-    padding: 15px;
+    height: 5rem;
+    padding: 1rem;
     border: 1px solid $secondary;
-    font-size: 16px;
-    border-radius: 10px;
+    font-size: 1rem;
+    border-radius: $border-radius-normal;
     width: 100%;
 
     &:focus {

@@ -11,15 +11,15 @@
 @import "@/assets/style/_variables";
 .show_more {
   border: none;
-  border-radius: 15px;
-  padding: 15px 30px;
+  border-radius: $border-radius-large;
+  padding: 1rem 2rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  margin: 50px auto 100px;
-  font-size: 20px;
+  margin: 3rem auto 6rem;
+  font-size: 1.25rem;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.75rem;
   border: 2px solid $secondary;
   color: $text;
 

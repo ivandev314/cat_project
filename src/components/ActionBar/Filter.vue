@@ -24,7 +24,6 @@ export default {
         <label>
           <input
             type="checkbox"
-            name="color"
             v-model="filter.isYoungerThanSixMonths"
             @change="onFilterChanged(filter)"
           />
@@ -35,7 +34,6 @@ export default {
         <label>
           <input
             type="checkbox"
-            name="color"
             v-model="filter.isYoungerThanTwelveMonths"
             @change="onFilterChanged(filter)"
           />
@@ -46,7 +44,6 @@ export default {
         <label>
           <input
             type="checkbox"
-            name="color"
             v-model="filter.isBlack"
             @change="onFilterChanged(filter)"
           />
@@ -63,12 +60,12 @@ export default {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.75rem;
 
   &_list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.75rem;
   }
 }
 
@@ -84,12 +81,12 @@ label {
     background: none;
     cursor: pointer;
     vertical-align: text-top;
-    height: 16px;
+    height: 1rem;
     border: 2px solid $primary;
-    width: 16px;
+    width: 1rem;
     opacity: 0.5;
     appearance: none;
-    border-radius: 4px;
+    border-radius: $border-radius-small;
 
     &:hover {
       background-color: $primary;

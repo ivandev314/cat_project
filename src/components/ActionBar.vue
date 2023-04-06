@@ -53,7 +53,7 @@ export default {
     gap: 5rem;
 
     img {
-      height: 100px;
+      height: 6rem;
       width: auto;
     }
   }

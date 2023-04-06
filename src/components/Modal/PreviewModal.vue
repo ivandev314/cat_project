@@ -55,7 +55,7 @@ export default {
   }
 
   &__img {
-    border-radius: 20px;
+    border-radius: $border-radius-largest;
     height: 50vh;
   }
 }

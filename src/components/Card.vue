@@ -57,7 +57,7 @@ export default {
 .card {
   flex: 0 1 285px;
   background-color: $light;
-  border-radius: 20px;
+  border-radius: $border-radius-large;
   box-shadow: -2px 2px 8px 0px $text;
   -webkit-box-shadow: -2px 2px 8px 0px $text;
   -moz-box-shadow: -2px 2px 8px 0px $text;
@@ -65,21 +65,21 @@ export default {
   &__image {
     width: 100%;
     object-fit: cover;
-    border-radius: 20px 20px 0 0;
-    border-bottom: 10px solid $secondary;
+    border-radius: $border-radius-large $border-radius-large 0 0;
+    border-bottom: 0.75rem solid $secondary;
     height: 15rem;
   }
 
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 10px 20px 20px;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem 1.25rem;
 
     &-top {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 0.5rem;
     }
 
     h3 {

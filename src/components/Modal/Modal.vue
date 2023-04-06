@@ -53,7 +53,7 @@ export default {
 
 .modal {
   background-color: $light;
-  border-radius: 1rem;
+  border-radius: $border-radius-large;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
   max-width: 90%;
   max-height: 90%;

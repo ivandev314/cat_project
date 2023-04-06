@@ -24,10 +24,10 @@ export default {
   background-color: $secondary;
   color: white;
   border: none;
-  border-radius: 16px;
-  padding: 8px 16px;
+  border-radius: $border-radius-large;
+  padding: 0.5rem 1rem;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   &:hover {

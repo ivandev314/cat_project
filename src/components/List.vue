@@ -59,13 +59,13 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 40px;
+    gap: 3rem;
   }
 
   &__no_items {
     text-align: center;
-    font-size: 24px;
-    margin-top: 100px;
+    font-size: 1.5rem;
+    margin-top: 5rem;
     width: 100%;
   }
 }
