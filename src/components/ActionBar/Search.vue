@@ -20,6 +20,7 @@ export default {
       placeholder="Search"
       v-model="inputValue"
       @input="onSearchTermChanged"
+      class="search__input"
     />
     <img
       alt="Vue logo"
@@ -37,30 +38,45 @@ export default {
   position: relative;
   flex: 1;
 
-  input {
-    height: 5rem;
+  &__input {
     padding: 1rem;
     border: 1px solid $secondary;
     font-size: 1rem;
     border-radius: $border-radius-normal;
     width: 100%;
 
+    &:hover,
     &:focus {
-      border: 1px solid $text;
+      box-shadow: 0 0 4px 0px $secondary;
       outline: none;
     }
 
     &::placeholder {
-      color: $light-grey;
+      color: $grey;
     }
   }
 
   img {
     position: absolute;
-    right: 5px;
-    top: 10px;
-    height: 20px;
-    width: 20px;
+    right: 0.5rem;
+    top: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .search {
+    &__input {
+      padding: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    img {
+      width: 1rem;
+      height: 1rem;
+      top: 0.6rem;
+    }
   }
 }
 </style>

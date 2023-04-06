@@ -16,6 +16,7 @@ export default {
   },
 };
 </script>
+
 <template>
   <div class="filter">
     <h4>Show only</h4>
@@ -110,6 +111,26 @@ label {
         transform: rotate(45deg) translate(-50%, -50%);
         z-index: 2;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .filter_list {
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .filter_list {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .filter_list {
+    label {
+      font-size: 0.75rem;
     }
   }
 }

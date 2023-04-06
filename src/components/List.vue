@@ -52,14 +52,12 @@ export default {
 .list {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 
   &__items {
-    padding: $main-component-padding;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 3rem;
+    padding: 50px 160px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    gap: 2rem;
   }
 
   &__no_items {
@@ -67,6 +65,56 @@ export default {
     font-size: 1.5rem;
     margin-top: 5rem;
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .list {
+    &__items {
+      grid-template-columns: repeat(4, minmax(200px, 1fr));
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .list {
+    &__items {
+      padding: 50px 100px;
+      gap: 1rem;
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .list {
+    &__items {
+      padding: 50px 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .list {
+    &__items {
+      grid-template-columns: repeat(2, minmax(150px, 1fr));
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .list {
+    &__items {
+      padding: 50px 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .list {
+    &__items {
+      grid-template-columns: 1fr;
+    }
   }
 }
 </style>

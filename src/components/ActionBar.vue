@@ -65,4 +65,59 @@ export default {
     gap: 10%;
   }
 }
+
+@media screen and (max-width: 1500px) {
+  .action_bar {
+    &__logo_and_search {
+      gap: 3rem;
+
+      img {
+        height: 4rem;
+        width: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .action_bar {
+    padding: 20px 100px;
+
+    &__logo_and_search {
+      gap: 2rem;
+
+      img {
+        height: 3rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .action_bar {
+    padding: 20px 50px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+
+    &__sort_and_filter {
+      justify-content: space-between;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .action_bar {
+    padding: 20px 30px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .action_bar {
+    padding: 10px 20px;
+
+    &__sort_and_filter {
+      gap: 10px;
+    }
+  }
+}
 </style>
