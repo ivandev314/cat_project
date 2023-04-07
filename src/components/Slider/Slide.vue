@@ -75,17 +75,14 @@ export default {
     transition: all 0.3s ease-out;
     opacity: 0.3;
     -webkit-user-drag: none;
+    z-index: 2;
 
     &:first-child {
-      z-index: 5;
+      z-index: 1;
     }
 
     &:last-child {
-      z-index: 5;
-    }
-
-    @media screen and (min-width: 1921px) {
-      width: unset;
+      z-index: 1;
     }
   }
 
@@ -96,6 +93,53 @@ export default {
     color: $primary;
     font-size: 5rem;
     z-index: 20;
+    background-color: rgba($color: #fff, $alpha: 0.4);
+    border-radius: $border-radius-largest;
+    padding: 0.2rem 1rem;
+  }
+}
+
+@media screen and (min-width: 1921px) {
+  .slide {
+    width: 33%;
+
+    &__image {
+      &:first-child {
+        z-index: 5;
+      }
+
+      &:last-child {
+        z-index: 5;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .slide {
+    height: 300px;
+    &__image {
+      height: 300px;
+    }
+    &__text {
+      font-size: 4rem;
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .slide {
+    height: 200px;
+
+    &__image {
+      height: 200px;
+    }
+
+    &__text {
+      left: 2rem;
+      bottom: 1rem;
+      font-size: 3rem;
+    }
   }
 }
 </style>

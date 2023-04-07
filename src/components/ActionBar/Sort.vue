@@ -19,7 +19,7 @@ export default {
 <template>
   <div class="sort">
     <h4>Sort by</h4>
-    <div class="sort__xy">
+    <div class="sort__container">
       <div class="sort__group">
         <div class="sort__group__buttons">
           <input
@@ -30,7 +30,7 @@ export default {
             v-model="sort.sortType"
             id="name"
           />
-          <label class="radio circle" for="name">
+          <label class="circle" for="name">
             <span class="big"> <span class="small"></span> </span>Name
           </label>
           <input
@@ -42,7 +42,7 @@ export default {
             đ
             id="age"
           />
-          <label class="radio circle" for="age">
+          <label class="circle" for="age">
             <span class="big"> <span class="small"></span> </span>Age
           </label>
         </div>
@@ -57,7 +57,7 @@ export default {
             v-model="sort.sortDirection"
             id="ascending"
           />
-          <label class="radio circle" for="ascending">
+          <label class="circle" for="ascending">
             <span class="big"> <span class="small"></span> </span>Ascending
           </label>
           <input
@@ -68,7 +68,7 @@ export default {
             v-model="sort.sortDirection"
             id="descending"
           />
-          <label class="radio circle" for="descending">
+          <label class="circle" for="descending">
             <span class="big"> <span class="small"></span> </span>Descending
           </label>
         </div>
@@ -83,66 +83,74 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: 0.75rem;
 
-  &__xy {
+  &__container {
     display: flex;
-    /* flex-direction: column; */
-    gap: 20px;
+    gap: 1rem;
   }
 
   &__group {
     display: flex;
-    /* flex-direction: column; */
     gap: 20px;
 
     &__buttons {
       display: flex;
       flex-direction: column;
       gap: 10px;
+
+      input {
+        display: none;
+      }
+
+      label {
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      .circle .big {
+        cursor: pointer;
+        height: 18px;
+        width: 18px;
+        padding: 5px;
+        border: 2px solid $secondary;
+      }
+
+      span.big {
+        border-radius: 50% 50% 50% 50%;
+        display: inline-block;
+        height: 12px;
+        margin-bottom: -12px;
+        margin-right: 9px;
+        padding: 50px;
+        position: relative;
+        top: -8px;
+        width: 12px;
+      }
+
+      span.small {
+        border-radius: 50% 50% 50% 50%;
+        display: block;
+        height: 100%;
+        transition: background 0.4s ease 0s;
+        width: 100%;
+      }
+
+      input[type="radio"]:checked + label.circle span.small {
+        background-color: $secondary;
+      }
     }
   }
 }
 
-input {
-  display: none;
-}
-
-label {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-span {
-  &.big {
-    border-radius: 50% 50% 50% 50%;
-    display: inline-block;
-    height: 12px;
-    margin-bottom: -12px;
-    margin-right: 9px;
-    padding: 50px;
-    position: relative;
-    top: -8px;
-    width: 12px;
+@media screen and (max-width: 430px) {
+  .sort {
+    &__container {
+      gap: 0.5rem;
+    }
   }
-  &.small {
-    border-radius: 50% 50% 50% 50%;
-    display: block;
-    height: 100%;
-    transition: background 0.4s ease 0s;
-    width: 100%;
+  label {
+    font-size: 0.75rem;
   }
-}
-
-.circle .big {
-  cursor: pointer;
-  height: 18px;
-  width: 18px;
-  padding: 5px;
-  border: 2px solid $secondary;
-}
-
-input[type="radio"]:checked + label.circle span.small {
-  background-color: $secondary;
 }
 </style>

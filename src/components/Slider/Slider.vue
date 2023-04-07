@@ -39,12 +39,13 @@ export default {
     return {
       cats: this.items,
       autoplayInterval: null,
-      sliderActive: true,
+      sliderActive: false,
       slideDirection: "right",
     };
   },
   mounted() {
     this.setAutoplayInterval();
+    this.sliderActive = true;
   },
   beforeDestroy() {
     clearInterval(this.autoplayInterval);
@@ -52,13 +53,30 @@ export default {
   methods: {
     previous() {
       this.slideDirection = "left";
-      const lastSlide = this.cats.pop();
-      this.cats = [lastSlide].concat(this.cats);
+      this.cats = [
+        {
+          ...this.cats[this.cats.length - 2],
+          id: this.cats[this.cats.length - 1].id,
+        },
+        ...this.cats.slice(0, -1),
+      ];
+
+      if (this.sliderActive) {
+        clearInterval(this.autoplayInterval);
+        this.setAutoplayInterval();
+      }
     },
     next() {
       this.slideDirection = "right";
-      const firstPicture = this.cats.shift();
-      this.cats = this.cats.concat(firstPicture);
+      this.cats = [
+        ...this.cats.slice(1),
+        { ...this.cats[1], id: this.cats[0].id },
+      ];
+
+      if (this.sliderActive) {
+        clearInterval(this.autoplayInterval);
+        this.setAutoplayInterval();
+      }
     },
     handleSlideClick(id) {
       this.$emit("sliderClick", id);
@@ -107,10 +125,12 @@ export default {
     overflow: visible;
     background-color: grey;
     height: 350px;
-    /* 
-    @media screen and (min-width: 1920px) {
-      width: 1920px;
-    } */
+    z-index: 10;
+
+    .slide:nth-of-type(1),
+    .slide:nth-of-type(5) {
+      opacity: 0;
+    }
 
     :nth-child(3) {
       height: 350px;
@@ -125,10 +145,6 @@ export default {
           cursor: pointer;
         }
       }
-
-      /* @media screen and (min-width: 1920px) {
-        max-width: 80%;
-      } */
     }
   }
 
@@ -153,20 +169,12 @@ export default {
   }
 
   &__previous {
-    left: 17vw;
-
-    @media screen and (min-width: 1920px) {
-      left: 20%;
-    }
+    left: 17.5vw;
   }
 
   &__next {
-    right: 17vw;
+    right: 17.5vw;
     transform: rotate(180deg);
-
-    @media screen and (min-width: 1920px) {
-      right: 20%;
-    }
   }
 
   &__previous_img,
@@ -178,6 +186,75 @@ export default {
 }
 
 .swipe-move {
-  transition: all 0.1s;
+  transition: all 0.2s;
+}
+
+.swipe-enter,
+.swipe-leave-to {
+  opacity: 0;
+}
+
+@media screen and (min-width: 1921px) {
+  .slider {
+    &__transition_container {
+      width: 1920px;
+
+      :nth-child(2).slide,
+      :nth-child(4).slide {
+        display: none;
+        width: 460px;
+      }
+
+      :nth-child(3) {
+        width: 1000px;
+      }
+    }
+
+    &__previous {
+      left: 490px;
+    }
+
+    &__next {
+      right: 490px;
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .slider {
+    height: 350px;
+
+    &__transition_container {
+      height: 300px;
+
+      :nth-child(3) {
+        height: 300px;
+      }
+    }
+
+    &__previous,
+    &__next {
+      top: 150px;
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .slider {
+    height: 250px;
+
+    &__transition_container {
+      height: 200px;
+
+      :nth-child(3) {
+        height: 200px;
+      }
+    }
+
+    &__previous,
+    &__next {
+      top: 100px;
+    }
+  }
 }
 </style>

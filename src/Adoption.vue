@@ -92,7 +92,14 @@ export default {
       );
     },
     firstFourYoungestItems() {
-      return this.cats.sort((a, b) => a.age - b.age).slice(0, 4);
+      let firstFour = this.cats.sort((a, b) => a.age - b.age).slice(0, 4);
+      let fiveItemsWithUniqueId = [...firstFour, { ...firstFour[0] }].map(
+        (cat, i) => ({
+          ...cat,
+          id: i,
+        })
+      );
+      return fiveItemsWithUniqueId;
     },
     filteredItems() {
       let filteredCats = this.cats.filter((cat) => {
