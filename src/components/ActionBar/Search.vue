@@ -39,7 +39,7 @@ export default {
   flex: 1;
 
   &__input {
-    padding: 1rem;
+    padding: 1rem 2rem 1rem 1rem;
     border: 1px solid $secondary;
     font-size: 1rem;
     border-radius: $border-radius-normal;

@@ -1,30 +1,3 @@
-<template>
-  <div class="slider">
-    <TransitionGroup
-      id="list"
-      name="swipe"
-      tag="div"
-      class="slider__transition_container"
-    >
-      <Slide
-        v-for="(cat, index) in cats"
-        :key="cat.id"
-        :item="cat"
-        :index="index"
-        @openModal="handleSlideClick"
-        @mouseOver="handleMouseOver"
-        @mouseOut="handleMouseOut"
-      />
-    </TransitionGroup>
-    <button class="slider__previous" @click="previous">
-      <img class="slider__previous_img" src="@/assets/icons/arrow.svg" />
-    </button>
-    <button class="slider__next" @click="next">
-      <img class="slider__next_img" src="@/assets/icons/arrow.svg" />
-    </button>
-  </div>
-</template>
-
 <script>
 import Slide from "./Slide.vue";
 
@@ -46,6 +19,9 @@ export default {
   mounted() {
     this.setAutoplayInterval();
     this.sliderActive = true;
+  },
+  updated() {
+    this.cats = this.items;
   },
   beforeDestroy() {
     clearInterval(this.autoplayInterval);
@@ -102,6 +78,33 @@ export default {
   components: { Slide },
 };
 </script>
+
+<template>
+  <div class="slider">
+    <TransitionGroup
+      id="list"
+      name="swipe"
+      tag="div"
+      class="slider__transition_container"
+    >
+      <Slide
+        v-for="(cat, index) in cats"
+        :key="cat.id"
+        :item="cat"
+        :index="index"
+        @openModal="handleSlideClick"
+        @mouseOver="handleMouseOver"
+        @mouseOut="handleMouseOut"
+      />
+    </TransitionGroup>
+    <button class="slider__previous" @click="previous">
+      <img class="slider__previous_img" src="@/assets/icons/arrow.svg" />
+    </button>
+    <button class="slider__next" @click="next">
+      <img class="slider__next_img" src="@/assets/icons/arrow.svg" />
+    </button>
+  </div>
+</template>
 
 <style lang="scss">
 @import "@/assets/style/_variables";
