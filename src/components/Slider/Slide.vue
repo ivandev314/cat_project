@@ -6,7 +6,7 @@
     @mouseout="handleMouseOut"
   >
     <img
-      :src="`${imageUrl}/${item.name}.jpg`"
+      :src="`/images/${item.name}.jpg`"
       :alt="`cat-${item.name}`"
       class="slide__image"
       :data-content="item.name"
@@ -50,10 +50,6 @@ export default {
         this.$emit("mouseOut");
       }
     },
-  },
-  setup() {
-    const imageUrl = new URL("./../../assets/images/", import.meta.url).href;
-    return { imageUrl };
   },
 };
 </script>

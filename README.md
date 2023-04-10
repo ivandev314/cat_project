@@ -9,6 +9,7 @@ npm install
 Once you have the dependencies installed, you can use the following commands to compile and test the project:
 
 npm run dev:
+
 This command compiles the project and provides hot-reloading for development purposes.
 
 npm run build:
