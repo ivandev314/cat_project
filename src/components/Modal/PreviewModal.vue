@@ -17,9 +17,10 @@ export default {
       this.$emit("catAdopted", value);
     },
   },
-  setup() {
-    const imageUrl = new URL("./../../assets/images", import.meta.url).href;
-    return { imageUrl };
+  data() {
+    return {
+      publicPath: import.meta.env.BASE_URL,
+    };
   },
   components: { Cta },
 };
@@ -28,7 +29,7 @@ export default {
 <template>
   <div class="preview_modal">
     <img
-      :src="`${imageUrl}/${activeItem?.name}.jpg`"
+      :src="`${publicPath}/images/${activeItem?.name}.jpg`"
       alt="cat"
       class="preview_modal__img"
     />

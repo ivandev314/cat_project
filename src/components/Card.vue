@@ -28,9 +28,10 @@ export default {
       this.$emit("catAdopted", value);
     },
   },
-  setup() {
-    const imageUrl = new URL("./../assets/images", import.meta.url).href;
-    return { imageUrl };
+  data() {
+    return {
+      publicPath: import.meta.env.BASE_URL,
+    };
   },
 };
 </script>
@@ -38,7 +39,7 @@ export default {
 <template>
   <li class="card">
     <img
-      :src="`${imageUrl}/${name}.jpg`"
+      :src="`${publicPath}/images/${name}.jpg`"
       :alt="`cat-${name}`"
       class="card__image"
     />
@@ -55,6 +56,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/style/_variables";
 .card {
+  /* flex: 0 1 260px; */
   background-color: $light;
   border-radius: $border-radius-large;
   box-shadow: -2px 2px 8px 0px $text;

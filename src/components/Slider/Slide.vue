@@ -6,7 +6,7 @@
     @mouseout="handleMouseOut"
   >
     <img
-      :src="`${imageUrl}/${item.name}.jpg`"
+      :src="`${publicPath}/images/${item.name}.jpg`"
       :alt="`cat-${item.name}`"
       class="slide__image"
       :data-content="item.name"
@@ -51,9 +51,10 @@ export default {
       }
     },
   },
-  setup() {
-    const imageUrl = new URL("./../../assets/images", import.meta.url).href;
-    return { imageUrl };
+  data() {
+    return {
+      publicPath: import.meta.env.BASE_URL,
+    };
   },
 };
 </script>
