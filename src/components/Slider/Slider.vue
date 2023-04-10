@@ -78,8 +78,8 @@ export default {
         this.setAutoplayInterval();
       }
     },
-    handleSlideClick(id) {
-      this.$emit("sliderClick", id);
+    handleSlideClick(name) {
+      this.$emit("sliderClick", name);
     },
     handleMouseOver() {
       this.sliderActive = false;

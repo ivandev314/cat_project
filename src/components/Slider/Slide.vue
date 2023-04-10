@@ -37,7 +37,7 @@ export default {
   methods: {
     handleClick() {
       if (this.index === 2) {
-        this.$emit("openModal", this.index);
+        this.$emit("openModal", this.item.name);
       }
     },
     handleMouseOver() {

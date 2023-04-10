@@ -23,7 +23,11 @@ export default {
 
 <template>
   <div class="preview_modal">
-    <img src="/images/cat.jpg" alt="cat" class="preview_modal__img" />
+    <img
+      :src="`/images/${activeItem?.name}.jpg`"
+      alt="cat"
+      class="preview_modal__img"
+    />
     <div class="preview_modal__info">
       <div class="preview_modal__info__top">
         <h2>{{ activeItem?.name }}</h2>

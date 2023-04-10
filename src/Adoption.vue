@@ -68,7 +68,7 @@ export default {
       document.body.classList.remove("modal_open");
     },
     onSliderClick(value) {
-      this.activeItem = this.cats.find((cat) => cat.id === value);
+      this.activeItem = this.cats.find((cat) => cat.name === value);
       this.previewModalActive = true;
       document.body.classList.add("modal_open");
     },
