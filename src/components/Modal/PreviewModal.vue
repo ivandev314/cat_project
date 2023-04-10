@@ -17,6 +17,10 @@ export default {
       this.$emit("catAdopted", value);
     },
   },
+  setup() {
+    const imageUrl = new URL("./../../assets/images", import.meta.url).href;
+    return { imageUrl };
+  },
   components: { Cta },
 };
 </script>
@@ -24,7 +28,7 @@ export default {
 <template>
   <div class="preview_modal">
     <img
-      :src="`/images/${activeItem?.name}.jpg`"
+      :src="`${imageUrl}/${activeItem?.name}.jpg`"
       alt="cat"
       class="preview_modal__img"
     />

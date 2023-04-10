@@ -28,13 +28,17 @@ export default {
       this.$emit("catAdopted", value);
     },
   },
+  setup() {
+    const imageUrl = new URL("./../assets/images", import.meta.url).href;
+    return { imageUrl };
+  },
 };
 </script>
 
 <template>
   <li class="card">
     <img
-      :src="`/images/${name}.jpg`"
+      :src="`${imageUrl}/${name}.jpg`"
       :alt="`cat-${name}`"
       class="card__image"
     />
