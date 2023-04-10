@@ -39,7 +39,7 @@ export default {
 <template>
   <li class="card">
     <img
-      :src="`${publicPath}/images/${name}.jpg`"
+      :src="`${publicPath}/images/${name.toLowerCase()}.jpg`"
       :alt="`cat-${name}`"
       class="card__image"
     />

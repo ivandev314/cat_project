@@ -29,7 +29,7 @@ export default {
 <template>
   <div class="preview_modal">
     <img
-      :src="`${publicPath}/images/${activeItem?.name}.jpg`"
+      :src="`${publicPath}/images/${activeItem?.name.toLowerCase()}.jpg`"
       alt="cat"
       class="preview_modal__img"
     />
@@ -66,6 +66,8 @@ export default {
   &__img {
     border-radius: $border-radius-largest;
     height: 50vh;
+    width: 40vw;
+    object-fit: cover;
   }
 }
 </style>

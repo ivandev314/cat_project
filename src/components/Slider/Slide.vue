@@ -6,12 +6,12 @@
     @mouseout="handleMouseOut"
   >
     <img
-      :src="`${publicPath}/images/${item.name}.jpg`"
+      :src="`${publicPath}/images/${item.name.toLowerCase()}.jpg`"
       :alt="`cat-${item.name}`"
       class="slide__image"
       :data-content="item.name"
     />
-    <p class="slide__text">{{ capitalizeFirstLetter(item.name) }}</p>
+    <p class="slide__text">{{ item.name }}</p>
   </div>
 </template>
 
@@ -25,13 +25,6 @@ export default {
     index: {
       type: Number,
       required: true,
-    },
-  },
-  computed: {
-    capitalizeFirstLetter(string) {
-      return (string) => {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      };
     },
   },
   methods: {
