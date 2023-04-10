@@ -87,31 +87,23 @@ export default {
   }
 
   &__text {
-    position: absolute;
-    bottom: 2rem;
-    left: 5rem;
-    color: $primary;
-    font-size: 5rem;
+    position: relative;
+    bottom: 6rem;
+    left: 3rem;
+    color: $text;
+    font-size: 3rem;
     z-index: 20;
     background-color: rgba($color: #fff, $alpha: 0.4);
     border-radius: $border-radius-largest;
     padding: 0.2rem 1rem;
+    display: inline;
+    pointer-events: none;
   }
 }
 
 @media screen and (min-width: 1921px) {
   .slide {
-    width: 33%;
-
-    &__image {
-      &:first-child {
-        z-index: 5;
-      }
-
-      &:last-child {
-        z-index: 5;
-      }
-    }
+    width: 360px;
   }
 }
 
@@ -122,7 +114,17 @@ export default {
       height: 300px;
     }
     &__text {
-      font-size: 4rem;
+      font-size: 3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .slide {
+    &__text {
+      font-size: 2.5rem;
+      bottom: 5rem;
+      left: 2rem;
     }
   }
 }
@@ -136,9 +138,9 @@ export default {
     }
 
     &__text {
-      left: 2rem;
-      bottom: 1rem;
-      font-size: 3rem;
+      left: 4rem;
+      bottom: 4rem;
+      font-size: 2rem;
     }
   }
 }

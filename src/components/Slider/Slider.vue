@@ -137,6 +137,13 @@ export default {
       width: 60vw;
       z-index: 15;
 
+      p:hover {
+        .slide__image {
+          transform: scale(1.05);
+          cursor: pointer;
+        }
+      }
+
       img {
         opacity: 1;
 
@@ -197,26 +204,22 @@ export default {
 @media screen and (min-width: 1921px) {
   .slider {
     &__transition_container {
-      width: 1920px;
-
-      :nth-child(2).slide,
-      :nth-child(4).slide {
-        display: none;
-        width: 460px;
-      }
-
       :nth-child(3) {
-        width: 1000px;
+        width: 1200px;
       }
     }
 
     &__previous {
-      left: 490px;
+      left: 315px;
     }
 
     &__next {
-      right: 490px;
+      right: 315px;
     }
+  }
+
+  .swipe-move {
+    transition: all 0.1s;
   }
 }
 
@@ -241,19 +244,28 @@ export default {
 
 @media screen and (max-width: 780px) {
   .slider {
-    height: 250px;
+    height: 200px;
 
     &__transition_container {
       height: 200px;
 
       :nth-child(3) {
         height: 200px;
+        width: 100vw;
       }
     }
 
     &__previous,
     &__next {
-      top: 100px;
+      top: 76px;
+    }
+
+    &__previous {
+      left: 20px;
+    }
+
+    &__next {
+      right: 20px;
     }
   }
 }
