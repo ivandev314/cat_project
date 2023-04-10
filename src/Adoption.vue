@@ -85,11 +85,11 @@ export default {
   },
   computed: {
     moreItemsToShow() {
-      return (
-        this.filteredItems.length &&
+      return this.filteredItems.length &&
         this.cats.length > this.itemsShown &&
         this.filteredItems.length === this.itemsShown
-      );
+        ? true
+        : false;
     },
     firstFourYoungestItems() {
       let firstFour = this.cats.sort((a, b) => a.age - b.age).slice(0, 4);

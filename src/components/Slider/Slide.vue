@@ -1,20 +1,3 @@
-<template>
-  <div
-    class="slide"
-    @click="handleClick"
-    @mouseover="handleMouseOver"
-    @mouseout="handleMouseOut"
-  >
-    <img
-      :src="`${publicPath}/images/${item.name.toLowerCase()}.jpg`"
-      :alt="`cat-${item.name}`"
-      class="slide__image"
-      :data-content="item.name"
-    />
-    <p class="slide__text">{{ item.name }}</p>
-  </div>
-</template>
-
 <script>
 export default {
   props: {
@@ -51,6 +34,23 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div
+    class="slide"
+    @click="handleClick"
+    @mouseover="handleMouseOver"
+    @mouseout="handleMouseOut"
+  >
+    <img
+      :src="`${publicPath}/images/${item.name.toLowerCase()}.jpg`"
+      :alt="`cat-${item.name}`"
+      class="slide__image"
+      :data-content="item.name"
+    />
+    <p class="slide__text">{{ item.name }}</p>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 @import "@/assets/style/_variables";

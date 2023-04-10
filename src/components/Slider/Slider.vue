@@ -260,7 +260,9 @@ export default {
 
     &__previous,
     &__next {
-      top: 76px;
+      top: 82px;
+      width: 36px;
+      height: 36px;
     }
 
     &__previous {

@@ -70,4 +70,20 @@ export default {
     object-fit: cover;
   }
 }
+
+@media screen and (max-width: 780px) {
+  .preview_modal {
+    &__info {
+      &__top {
+        flex-direction: column;
+      }
+    }
+
+    &__img {
+      border-radius: $border-radius-largest;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
 </style>
